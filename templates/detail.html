@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }} - 金句网{% endblock %}
+
+{% block content %}
+    <a href="{{ url_for('index') }}" class="back-link">← 返回首页</a>
+    
+    <div class="article-detail">
+        <h1 class="article-title">{{ article.title }}</h1>
+        <div class="article-quote">{{ article.quote }}</div>
+        <div class="article-comment">{{ article.comment }}</div>
+        <div class="article-content">
+            {{ article.content }}
+        </div>
+    </div>
+{% endblock %}

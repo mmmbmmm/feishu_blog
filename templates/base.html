@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}金句网{% endblock %}</title>
+    <style>
+        :root {
+            --apple-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --primary-color: #E54D42; /* 中国红 */
+            --bg-color: #F9F9F9;
+            --text-color: #333;
+            --light-gray: #E5E5E5;
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: var(--apple-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        header h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .article-title {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-weight: 500;
+        }
+        
+        .article-quote {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 15px 0;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .article-comment {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .article-content {
+            margin-top: 15px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 30px;
+        }
+        
+        /* 详情页样式 */
+        .article-detail {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>金句网</h1>
+            <p>精选阅读，智慧人生</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© {{ current_year }} 金句网 - 基于飞书多维表格的个人博客</p>
+        </div>
+    </footer>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

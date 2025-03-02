@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}金句网 - 首页{% endblock %}
+
+{% block content %}
+    {% if articles %}
+        {% for article in articles %}
+            <div class="article-card">
+                <h2 class="article-title">{{ article.title }}</h2>
+                <div class="article-quote">{{ article.quote }}</div>
+                <div class="article-comment">{{ article.comment }}</div>
+                <div class="article-content">
+                    {{ article.content[:100] }}{% if article.content|length > 100 %}...{% endif %}
+                </div>
+                <a href="{{ url_for('article_detail', article_id=article.id) }}" class="read-more" target="_blank">阅读全文 →</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="article-card">
+            <p>暂无文章，请检查飞书多维表格配置或添加内容。</p>
+        </div>
+    {% endif %}
+{% endblock %}
