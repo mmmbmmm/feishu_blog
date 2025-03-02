@@ -156,6 +156,9 @@ def index():
         }
         processed_articles.append(processed_article)
     
+    # 反转文章列表，使最新的文章显示在前面
+    processed_articles.reverse()
+    
     current_year = datetime.datetime.now().year
     return render_template('index.html', articles=processed_articles, current_year=current_year)
 
