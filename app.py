@@ -195,4 +195,8 @@ def page_not_found(e):
     return render_template('404.html', current_year=current_year), 404
 
 if __name__ == '__main__':
+    # 本地运行使用此配置
     app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])
+
+# 为Vercel部署添加此行，确保Vercel可以正确导入应用
+app.debug = app.config['DEBUG']
